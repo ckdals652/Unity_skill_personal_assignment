@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerController playerController;
+    [Header("PLayerStats")]
+    public float maxHp;
+    public float currentHp;
+    public float maxHunger;
+    public float currentHunger;
+    public float maxStamina;
+    public float currentStamina;
 
     private void Awake()
     {
         CharacterManager.Instance.player = this;
-        playerController = GetComponent<PlayerController>();
+    }
+
+    public void Damage(float damage)
+    {
+        currentHp -= damage;
     }
 }
