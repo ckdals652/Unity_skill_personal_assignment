@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
     }
@@ -43,5 +43,15 @@ public class PlayerController : MonoBehaviour
         direction.y = playerRigidbody.velocity.y;
 
         playerRigidbody.velocity = direction;
+    }
+
+    public void OnJump()
+    {
+        
+    }
+
+    public void Jump()
+    {
+        
     }
 }
