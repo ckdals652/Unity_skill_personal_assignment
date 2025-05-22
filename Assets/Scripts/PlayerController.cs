@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Move()
+    public void Move()
     {
         Vector3 direction = transform.forward*currentMovementInput.y+transform.right*currentMovementInput.x;
         direction *= MovementSpeed;
