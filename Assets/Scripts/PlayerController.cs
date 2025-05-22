@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 
 public class PlayerController : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     //플레이어 콜라이더 좌측 하단 기준
     public Transform playerBottomPosition;
     private Collider playerCollider;
-    public float rayLength = 0.1f;
+    [FormerlySerializedAs("rayLength")] public float groundRayLength = 0.2f;
     public LayerMask groundLayer;
     public Ray[] groundRays = new Ray[9];
 
@@ -28,13 +29,6 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         playerCollider = GetComponent<Collider>();
     }
-
-    private void Start()
-    {
-        //땅인지 확인할 레이 쏘기
-        GenerateGroundRays();
-    }
-
     void FixedUpdate()
     {
         Move();
@@ -63,15 +57,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        playerRigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        if (isGrounded() && context.phase == InputActionPhase.Started)
+        {
+            playerRigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        }
     }
 
-    public void isGrounded()
+    public bool isGrounded()
     {
+        GenerateGroundRays();
         foreach (var ray in groundRays)
         {
-            
+            if (Physics.Raycast(ray, groundRayLength, groundLayer))
+            {
+                return true;
+            }
         }
+
+        return false;
     }
 
     public void GenerateGroundRays()
@@ -94,10 +97,21 @@ public class PlayerController : MonoBehaviour
                 float offsetX = -width / 2f + x * xSpacing;
                 float offsetZ = -depth / 2f + z * zSpacing;
 
-                Vector3 origin = center + new Vector3(offsetX, 0f, offsetZ);
+                Vector3 origin = center + new Vector3(offsetX, 0.01f, offsetZ);
                 groundRays[index] = new Ray(origin, Vector3.down);
                 index++;
             }
+        }
+    }
+    void OnDrawGizmos()
+    {
+        if (groundRays == null) return;
+
+        Gizmos.color = Color.cyan;
+
+        foreach (Ray ray in groundRays)
+        {
+            Gizmos.DrawRay(ray.origin, ray.direction * groundRayLength);
         }
     }
 }
