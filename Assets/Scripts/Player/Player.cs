@@ -20,5 +20,10 @@ public class Player : MonoBehaviour
     public void Damage(float damage)
     {
         currentHp -= damage;
+        if (currentHp <= 0)
+        {
+            currentHp = 0;
+            //게임 오버 만들어줘야해
+        }
     }
 }
