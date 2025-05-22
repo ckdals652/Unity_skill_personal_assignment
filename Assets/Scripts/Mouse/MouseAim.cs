@@ -31,6 +31,7 @@ public class MouseAim : MonoBehaviour
         Player.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
 
+    //마우스 값 받아오기
     public void OnAim(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();

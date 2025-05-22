@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //플레이어 이동
     public void Move()
     {
         Vector3 direction = transform.forward * currentMovementInput.y + transform.right * currentMovementInput.x;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.velocity = direction;
     }
 
+    //점프
     public void OnJump(InputAction.CallbackContext context)
     {
         if (isGrounded() && context.phase == InputActionPhase.Started)
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //땅인지 확인하기
     public bool isGrounded()
     {
         GenerateGroundRays();
@@ -77,6 +80,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    //땅 확인용 레이 위치 최신화
     public void GenerateGroundRays()
     {
         Bounds bounds = playerCollider.bounds;
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    //땅 확인 레이 시각화
     void OnDrawGizmos()
     {
         if (groundRays == null) return;
