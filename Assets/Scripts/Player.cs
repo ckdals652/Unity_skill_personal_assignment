@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerController playerController;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        CharacterManager.Instance.player = this;
+        playerController = GetComponent<PlayerController>();
     }
 }
