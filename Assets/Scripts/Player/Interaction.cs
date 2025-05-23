@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class Interaction : MonoBehaviour
 {    
@@ -11,7 +13,7 @@ public class Interaction : MonoBehaviour
     public LayerMask layerMask;
 
     public GameObject curInteractGameObject;
-    Public ItemInterection; 
+    [FormerlySerializedAs("Interection")] public ItemInterection interection; 
     
     public TextMeshProUGUI promptText;
     private Camera camera;
@@ -35,6 +37,7 @@ public class Interaction : MonoBehaviour
                 if(hit.collider.gameObject != curInteractGameObject)
                 {
                     curInteractGameObject = hit.collider.gameObject;
+                    interection = curInteractGameObject.GetComponent<ItemInterection>();
                     SetPromptText();
                 }
             }
@@ -49,16 +52,15 @@ public class Interaction : MonoBehaviour
     private void SetPromptText()
     {
         promptText.gameObject.SetActive(true);
-        promptText.text = curInteractGameObject.GetComponent<ItemInterection>().GetInteractPrompt();
+        promptText.text = interection.GetInteractPrompt();
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Started && curInteractable != null)
+        if(context.phase == InputActionPhase.Started && interection != null)
         {
-            curInteractable.OnInteract();
             curInteractGameObject = null;
-            curInteractable = null;
+            interection = null;
             promptText.gameObject.SetActive(false);
         }
     }

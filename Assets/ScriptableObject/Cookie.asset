@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cookie
   m_EditorClassIdentifier: 
   displayName: Cookie
-  description: "\uBA39\uC73C\uBA74 3\uCD08\uAC04 \uD50C\uB808\uC774\uC5B4 \uC774\uB3D9
+  description: "\uB2FF\uC73C\uBA74 3\uCD08\uAC04 \uD50C\uB808\uC774\uC5B4 \uC774\uB3D9
     \uC18D\uB3C4\uAC00 30 \uC99D\uAC00 \uD569\uB2C8\uB2E4"
   type: 0
   icon: {fileID: 21300000, guid: 9473129ab5a0b514a85a45d2e79e0456, type: 3}

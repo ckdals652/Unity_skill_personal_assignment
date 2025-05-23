@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     //플레이어 콜라이더 좌측 하단 기준
     public Transform playerBottomPosition;
     private Collider playerCollider;
-    [FormerlySerializedAs("rayLength")] public float groundRayLength = 0.2f;
+    public float groundRayLength = 0.2f;
     public LayerMask groundLayer;
     public Ray[] groundRays = new Ray[9];
 

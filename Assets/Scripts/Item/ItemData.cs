@@ -12,7 +12,8 @@ public class ItemDataConsumable
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
 {
-    [Header("Info")] public string displayName;
+    [Header("Info")] 
+    public string displayName;
     public string description;
     public Enum.EnumItemType type;
     public Sprite icon;
