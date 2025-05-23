@@ -6,6 +6,8 @@ public class ItemEffectManager : MonoBehaviour
 {
     private static ItemEffectManager _instance;
 
+    public Player player;
+
     public static ItemEffectManager Instance
     {
         get
@@ -33,4 +35,6 @@ public class ItemEffectManager : MonoBehaviour
             }
         }
     }
+    
+    private Enu
 }

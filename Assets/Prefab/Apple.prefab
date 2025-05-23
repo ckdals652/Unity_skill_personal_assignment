@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3332030478271343699}
   - component: {fileID: 1961199931445539230}
   - component: {fileID: 2245474481845645670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7370644209304130165}
   - component: {fileID: 9018619596865007697}
   - component: {fileID: 3723621382414685841}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}

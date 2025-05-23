@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7337544768010167360}
   - component: {fileID: 8754108129904259308}
   - component: {fileID: 4957810596384597253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamageBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5164526560885084689}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamageBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

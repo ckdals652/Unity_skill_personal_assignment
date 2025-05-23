@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         CharacterManager.Instance.player = this;
+        ItemEffectManager.Instance.player = this;
     }
 
     public void Damage(float damage)
