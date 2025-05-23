@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class MouseCursor:MonoBehaviour
+    public class MouseCursorOff:MonoBehaviour
     {
         private void Start()
         {
