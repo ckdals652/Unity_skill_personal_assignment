@@ -15,4 +15,16 @@ public class Enum : MonoBehaviour
         Player,
         Ground
     }
+
+    public enum EnumItemType
+    {
+        Consumable,
+        Structure
+    }
+    
+    public enum ConsumableType
+    {
+        Hunger,
+        Health
+    }
 }
