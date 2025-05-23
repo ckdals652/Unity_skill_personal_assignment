@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Cookie : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.layer == (int)Enum.EnumLayer.Player)
+        {
+            ItemEffectManager.Instance.RequestSpeedChange(3f, 30f);
+            Destroy(gameObject);
+        }
     }
 }

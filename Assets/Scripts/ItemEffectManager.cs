@@ -35,6 +35,34 @@ public class ItemEffectManager : MonoBehaviour
             }
         }
     }
+    public void RequestHealing(float duration, float healPerSecond)
+    {
+        StartCoroutine(HealingCoroutine(duration, healPerSecond));
+    }
+    public IEnumerator HealingCoroutine(float duration, float healAmount)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            player.PlayerHpChange(healAmount);  // 플레이어의 체력을 회복시킴
+            timer += 1f;
+            yield return new WaitForSeconds(1f);
+        }
+    }
     
-    private Enu
+    public void RequestSpeedChange(float duration, float SpeedChangeAmount)
+    {
+        StartCoroutine(SpeedChangeCoroutine(duration, SpeedChangeAmount));
+    }
+    public IEnumerator SpeedChangeCoroutine(float duration, float SpeedChangeAmount)
+    {
+        float timer = 0f;
+        player.GetComponent<PlayerController>().PlayerSpeedChange(SpeedChangeAmount);
+        while (timer < duration)
+        {
+            timer += 1f;
+            yield return new WaitForSeconds(1f);
+        }
+        player.GetComponent<PlayerController>().PlayerSpeedChange(-SpeedChangeAmount);
+    }
 }

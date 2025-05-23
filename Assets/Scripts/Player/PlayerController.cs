@@ -9,7 +9,8 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement")] public float MovementSpeed;
+    [FormerlySerializedAs("MovementSpeed")] [Header("Movement")] 
+    public float movementSpeed;
     public float jumpForce;
 
     public Vector2 currentMovementInput;
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         Vector3 direction = transform.forward * currentMovementInput.y + transform.right * currentMovementInput.x;
-        direction *= MovementSpeed;
+        direction *= movementSpeed;
         direction.y = playerRigidbody.velocity.y;
 
         playerRigidbody.velocity = direction;
@@ -118,5 +119,10 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.DrawRay(ray.origin, ray.direction * groundRayLength);
         }
+    }
+    
+    public void PlayerSpeedChange(float speedChangeAmount)
+    {
+        movementSpeed += speedChangeAmount;
     }
 }

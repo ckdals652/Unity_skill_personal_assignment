@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
@@ -27,4 +28,14 @@ public class Player : MonoBehaviour
             //게임 오버 만들어줘야해
         }
     }
+
+    public void PlayerHpChange(float hpChangeAmount)
+    {
+        currentHp += hpChangeAmount;
+        if (currentHp > maxHp)
+        {
+            currentHp = maxHp;
+        }
+    }
+
 }
