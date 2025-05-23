@@ -15,8 +15,8 @@ MonoBehaviour:
   displayName: Cookie
   description: "\uBA39\uC73C\uBA74 \uCCB4\uB825\uC740 10 \uD68C\uBCF5\uD569\uB2C8\uB2E4"
   type: 0
-  icon: {fileID: 0}
-  dropPrefab: {fileID: 4202571461452873826, guid: 9cdcc6c37b6b2c04ab68de3e4d317bf1, type: 3}
+  icon: {fileID: 21300000, guid: 9473129ab5a0b514a85a45d2e79e0456, type: 3}
+  dropPrefab: {fileID: 1750026405951867519, guid: 9cdcc6c37b6b2c04ab68de3e4d317bf1, type: 3}
   canStack: 0
   maxStackAmount: 0
   consumables: []
